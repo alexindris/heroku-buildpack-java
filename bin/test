@@ -23,3 +23,9 @@ if has_maven_wrapper $BUILD_DIR; then
 else
   mvn -B ${mvn_settings_opt} ${MAVEN_HEROKU_CI_GOAL:-test}
 fi
+
+if yarn --version > /dev/null 2>&1; then
+  yarn test
+else
+  npm test
+fi
